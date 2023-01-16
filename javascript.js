@@ -4,7 +4,7 @@ function setPlayerChoice(event){
 
 
 function getComputerChoice() {
-    let choices = ["rock", "paper", "scissors"]
+    let choices = ["✊", "🖐️", "✌️"]
     return choices[Math.floor(Math.random() * (choices.length))];
 }
 
@@ -12,44 +12,53 @@ let playerScore = 0
 let computerScore = 0
 
 function playRound(playerSelection, computerSelection) {
-    if(playerSelection == "rock"){
-        if(computerSelection == "paper"){
+    if(playerSelection == "✊"){
+        if(computerSelection == "🖐️"){
             computerScore ++
-            return `You lose! ${playerSelection} loses to ${computerSelection}`
-        } else if(computerSelection == "scissors"){
+            document.querySelector(".win-or-lose").innerText = "You lost!" 
+            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
+        } else if(computerSelection == "✌️"){
             playerScore ++
-            return `You win! ${playerSelection} beats ${computerSelection}`
+            document.querySelector(".win-or-lose").innerText = "You won!" 
+            document.querySelector(".beats-or-losesTo").innerText = "beats"
         } else {
-            return `Tie! You both chose ${playerSelection}`
+            document.querySelector(".win-or-lose").innerText = "Tie!" 
+            document.querySelector(".beats-or-losesTo").innerText = " = " 
         }
-    } else if(playerSelection == "paper"){
-        if(computerSelection == "paper"){
-            return `Tie! You both chose ${playerSelection}`
-        } else if(computerSelection == "scissors"){
+    } else if(playerSelection == "🖐️"){
+        if(computerSelection == "🖐️"){
+            document.querySelector(".win-or-lose").innerText = "Tie!" 
+            document.querySelector(".beats-or-losesTo").innerText = " = " 
+        } else if(computerSelection == "✌️"){
             computerScore ++
-            return `You lose! ${playerSelection} loses to ${computerSelection}`
+            document.querySelector(".win-or-lose").innerText = "You lost!" 
+            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
         } else {
             playerScore ++
-            return `You win! ${playerSelection} beats ${computerSelection}`
+            document.querySelector(".win-or-lose").innerText = "You lost!" 
+            document.querySelector(".beats-or-losesTo").innerText = "loses to"             
         }
     } else {
-        if(computerSelection == "paper"){
+        if(computerSelection == "🖐️"){
             playerScore ++
-            return `You win! ${playerSelection} beats ${computerSelection}`
-        } else if(computerSelection == "scissors"){
-            return `Tie! You both chose ${playerSelection}`
+            document.querySelector(".win-or-lose").innerText = "You lost!" 
+            document.querySelector(".beats-or-losesTo").innerText = "loses to"             
+        } else if(computerSelection == "✌️"){
+            document.querySelector(".win-or-lose").innerText = "Tie!" 
+            document.querySelector(".beats-or-losesTo").innerText = " = " 
         } else {
             computerScore ++
-            return `You lose! ${playerSelection} loses to ${computerSelection}`
+            document.querySelector(".win-or-lose").innerText = "You lost!" 
+            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
         }
     }
 }
 
 function final(){
     if(playerScore == 5){
-        return "You Won!"
+        return "Game Won!"
     } else {
-        return "You Lost!"
+        return "Game Lost!"
     }
 }
 
@@ -62,11 +71,16 @@ function reset(){
 function game(event){
         let playerSelection = setPlayerChoice(event);
         let computerSelection = getComputerChoice()
-        document.querySelector(".computerChoice").innerHTML = `Computer chose ${computerSelection}`
-        document.querySelector(".playerChoice").innerHTML = `Player chose ${playerSelection}`
-        document.querySelector(".result").innerHTML = `${playRound(playerSelection, computerSelection)}`
+        
+        playRound(playerSelection, computerSelection)
+
+        document.querySelector(".computerChoice").innerHTML = `${computerSelection}`
+        document.querySelector(".computer-score").innerHTML = `Score: ${computerScore}`
+        
+        document.querySelector(".playerChoice").innerHTML = `${playerSelection}`
+        document.querySelector(".player-score").innerHTML = `Score: ${playerScore}`
+        
     if(playerScore == 5 || computerScore == 5){
         document.querySelector(".button-container").innerHTML = `${final()}`
     }
-    return (document.querySelector(".final-result").innerHTML = `Player Score: ${playerScore}; Computer Score: ${computerScore}`)
 }
