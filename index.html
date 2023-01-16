@@ -6,22 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>  
     <link rel="stylesheet" href="./styles.css">
+    <script src="./javascript.js" defer></script>  
 </head>
 <body>
-    <div class="button-container">
-        <button class="rock" value="rock" onclick="game(event)">rock</button>
-        <button class="paper" value="paper" onclick="game(event)">paper</button>
-        <button class="scissors"value="scissors" onclick="game(event)">scissors</button>
-    </div>
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+    <main>
+        <h2>MAKE YOUR CHOICE</h2>
+        <h4>First to 5 wins</h4>
+        
+        <div class="button-container">
+            <button class="rock" value="✊" onclick="game(event)">✊</button>
+            <button class="paper" value="🖐️" onclick="game(event)">🖐️</button>
+            <button class="scissors"value="✌️" onclick="game(event)">✌️</button>
+        </div>
+
+        <div class="results-container">
+
+            <div class="player-data">
+                <h3>Player</h3>
+                <p>Choice: </p>
+                <p class="playerChoice">?</p>
+                <p class="player-score">Score: 0</p>
+            </div>
+            <div class="round-result">
+                <p class="win-or-lose"></p>
+                <p class="beats-or-losesTo"></p>
+            </div>
+            <div class="computer-data">
+                <h3>Computer</h3>
+                <p>Choice: </p>
+                <p class="computerChoice">?</p>
+                <p class="computer-score">Score: 0</p>
+            </div>
+
+        </div>
+    </main>
+
+    <h1 class="final-result"></h1>
+    
 
     <button class="reset" onclick="reset()">Reset</button>
     
-    <h3 class="computerChoice"></h3>
-    <h3 class="playerChoice"></h3>
-
-    <h1 class="result"></h1>
-    <h1 class="final-result"></h1>
-
-    <script src="./javascript.js"></script>  
 </body>
 </html>

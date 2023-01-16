@@ -1,7 +1,70 @@
 * {
-    background-color: gray;
+    box-sizing: border-box;
 }
 
 button {
-    background-color: blanchedalmond;
+    background-color:slateblue;
+}
+
+body {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color:azure
+}
+
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    height: 200px;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.button-container > button {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    border-radius: 50%;
+    margin: 50px 0;
+}
+
+.round-result {
+    width: 100px;
+    font-size: 25px;
+}
+
+.results-container {
+    display: flex;
+    gap: 20px;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.player-data, .computer-data {
+    border: 1px solid black;
+    border-radius: 10px;
+    width: 200px;
+    height: 200px;
+    padding: 0;
+    margin: 0;
+}
+
+.playerChoice, .computerChoice {
+    font-size: 40px;
+    line-height: 55px;
+    margin: 0;
+}
+
+div > h3 {
+    text-decoration: underline;
+}
+
+.reset {
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
 }
