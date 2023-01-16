@@ -35,14 +35,14 @@ function playRound(playerSelection, computerSelection) {
             document.querySelector(".beats-or-losesTo").innerText = "loses to" 
         } else {
             playerScore ++
-            document.querySelector(".win-or-lose").innerText = "You lost!" 
-            document.querySelector(".beats-or-losesTo").innerText = "loses to"             
+            document.querySelector(".win-or-lose").innerText = "You won!" 
+            document.querySelector(".beats-or-losesTo").innerText = "beats"           
         }
     } else {
         if(computerSelection == "🖐️"){
             playerScore ++
-            document.querySelector(".win-or-lose").innerText = "You lost!" 
-            document.querySelector(".beats-or-losesTo").innerText = "loses to"             
+            document.querySelector(".win-or-lose").innerText = "You won!" 
+            document.querySelector(".beats-or-losesTo").innerText = "beats"           
         } else if(computerSelection == "✌️"){
             document.querySelector(".win-or-lose").innerText = "Tie!" 
             document.querySelector(".beats-or-losesTo").innerText = " = " 
