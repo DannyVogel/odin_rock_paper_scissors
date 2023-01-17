@@ -46,53 +46,29 @@ const beatsLosesElement = document.querySelector(".beats-or-losesTo")
 
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "✊"){
-        if(computerSelection == "🖐️"){
-            computerScore ++
-            winLoseElement.innerText = "You lost!" 
-            beatsLosesElement.innerText = "loses to" 
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else if(computerSelection == "✌️"){
-            playerScore ++
-            winLoseElement.innerText = "You won!" 
-            beatsLosesElement.innerText = "beats"
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else {
-            winLoseElement.innerText = "Tie!" 
-            beatsLosesElement.innerText = " = " 
-            animateCSS('.win-or-lose', 'bounceIn');
-        }
+        calculateResult("🖐️", "✌️", computerSelection)
+
     } else if(playerSelection == "🖐️"){
-        if(computerSelection == "🖐️"){
-            winLoseElement.innerText = "Tie!" 
-            beatsLosesElement.innerText = " = " 
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else if(computerSelection == "✌️"){
-            computerScore ++
-            winLoseElement.innerText = "You lost!" 
-            beatsLosesElement.innerText = "loses to" 
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else {
-            playerScore ++
-            winLoseElement.innerText = "You won!" 
-            beatsLosesElement.innerText = "beats"           
-            animateCSS('.win-or-lose', 'bounceIn');
-        }
+        calculateResult("✌️", "✊", computerSelection)
+
     } else {
-        if(computerSelection == "🖐️"){
-            playerScore ++
-            winLoseElement.innerText = "You won!" 
-            beatsLosesElement.innerText = "beats"           
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else if(computerSelection == "✌️"){
-            winLoseElement.innerText = "Tie!" 
-            beatsLosesElement.innerText = " = " 
-            animateCSS('.win-or-lose', 'bounceIn');
-        } else {
-            computerScore ++
-            winLoseElement.innerText = "You lost!" 
-            beatsLosesElement.innerText = "loses to" 
-            animateCSS('.win-or-lose', 'bounceIn');
-        }
+        calculateResult("✊", "🖐️", computerSelection)
+    }
+    animateCSS('.win-or-lose', 'bounceIn');
+}
+
+function calculateResult(computerWinSymbol, computerLoseSymbol, computerSelection){
+    if(computerSelection == computerLoseSymbol){
+        playerScore ++
+        winLoseElement.innerText = "You won!" 
+        beatsLosesElement.innerText = "beats"
+    } else if(computerSelection == computerWinSymbol){
+        computerScore ++
+        winLoseElement.innerText = "You lost!" 
+        beatsLosesElement.innerText = "loses to" 
+    } else {
+        winLoseElement.innerText = "Tie!" 
+        beatsLosesElement.innerText = " = " 
     }
 }
 
