@@ -50,8 +50,8 @@ header > button {
     margin-right:10px ;
 }
 
-h1, h2 {
-    margin: 0;
+h1, h2, h4 {
+    margin: 5px;
 }
 
 h2 {
@@ -64,10 +64,10 @@ input {
     -webkit-border-radius: 42px 42px 42px 42px;
     -moz-border-radius: 42px 42px 42px 42px;
     border: 4px inset #9acfcf;
-    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    margin: 5px;
+    box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -moz-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    margin-bottom: 15px;
 }
 
 ::placeholder {
@@ -85,9 +85,9 @@ input {
     -webkit-border-radius: 42px 42px 42px 42px;
     -moz-border-radius: 42px 42px 42px 42px;
     border: 4px inset #9acfcf;
-    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -moz-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
 }
 
 .btn:hover {
@@ -134,9 +134,9 @@ input {
     -webkit-border-radius: 42px 42px 42px 42px;
     -moz-border-radius: 42px 42px 42px 42px;
     border: 4px inset #9acfcf;
-    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
+    -moz-box-shadow: 4px 2px 4px 0px rgba(0,0,0,0.24);
 }
 
 div > h3 {
@@ -155,7 +155,7 @@ div > h3 {
     border-radius: 10px;
     font-size: 17px;
     line-height: 1;
-    margin: 20px 0;
+    margin: 15px 0;
 }
 
 .footer {
@@ -194,6 +194,7 @@ div > h3 {
 @media only screen and (max-width: 600px) {
     body {
       width: auto;
+      height: 100%;
       margin-top: 0;
     }
 
@@ -202,7 +203,7 @@ div > h3 {
     }
 
     .button-container {
-        height: 150px;
+        height: 125px;
     }
 
     .results-container {
@@ -241,9 +242,5 @@ div > h3 {
 
     h4 {
         font-size: 13px;
-    }
-
-    input {
-        margin-bottom: 5px;
     }
 }
