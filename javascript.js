@@ -1,8 +1,15 @@
 const buds = ["Ritesh", "Millan", "Christian", "Roberto", "Alex", "Aakash"]
 
+let player = "Player"
+document.querySelector(".player-name").innerText = player
+if(JSON.parse(localStorage.getItem("playerName")) != ""){
+    player = JSON.parse(localStorage.getItem("playerName"))
+}
+
 function setPlayerName(event){
     event.preventDefault()
     let player = document.getElementById("playerName").value;
+    localStorage.setItem("playerName", JSON.stringify(player))
     buds.forEach(item => {
         if(item == player){
             player = "Bastard"
