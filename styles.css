@@ -243,4 +243,7 @@ div > h3 {
         font-size: 13px;
     }
 
+    input {
+        margin-bottom: 5px;
+    }
 }
