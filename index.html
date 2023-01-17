@@ -6,11 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>  
     <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <script src="./javascript.js" defer></script>  
 </head>
 <body>
     <header>
         <h1>Rock Paper Scissors</h1>
+        <button class="btn toggle-darkMode" onclick="toggleDark()">🌙</button>
     </header>
 
     <main>
@@ -18,9 +20,9 @@
         <h4>First to 5 wins</h4>
         
         <div class="button-container">
-            <button class="rock" value="✊" onclick="game(event)">✊</button>
-            <button class="paper" value="🖐️" onclick="game(event)">🖐️</button>
-            <button class="scissors"value="✌️" onclick="game(event)">✌️</button>
+            <button class="btn rock" value="✊" onclick="game(event)">✊</button>
+            <button class="btn paper" value="🖐️" onclick="game(event)">🖐️</button>
+            <button class="btn scissors"value="✌️" onclick="game(event)">✌️</button>
         </div>
 
         <div class="results-container">
@@ -32,7 +34,7 @@
                 <p class="player-score">Score: 0</p>
             </div>
             <div class="round-result">
-                <p class="win-or-lose"></p>
+                <p class="win-or-lose animate__faster"></p>
                 <p class="beats-or-losesTo"></p>
             </div>
             <div class="computer-data">
@@ -48,7 +50,7 @@
     <h1 class="final-result"></h1>
     
 
-    <button class="reset" onclick="reset()">Reset</button>
+    <button class="btn reset" onclick="reset()"></button>
     
 </body>
 </html>
