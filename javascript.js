@@ -4,6 +4,7 @@ let player = "Player"
 document.querySelector(".player-name").innerText = player
 if(JSON.parse(localStorage.getItem("playerName")) != ""){
     player = JSON.parse(localStorage.getItem("playerName"))
+    document.querySelector(".player-name").innerText = player
 }
 
 function setPlayerName(event){
@@ -19,6 +20,7 @@ function setPlayerName(event){
         player = "Player"
     }
     document.querySelector(".player-name").innerText = player
+    document.getElementById("playerName").value = ""
 }
 
 function setPlayerChoice(event){
