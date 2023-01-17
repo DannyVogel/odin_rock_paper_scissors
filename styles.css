@@ -194,7 +194,7 @@ div > h3 {
 @media only screen and (max-width: 600px) {
     body {
       width: auto;
-      height: 100%;
+      height: 100vh;
       margin-top: 0;
     }
 
