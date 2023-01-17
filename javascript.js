@@ -80,6 +80,10 @@ function reset(){
     document.querySelector(".player-score").innerHTML = `Score: ${playerScore}`
     document.querySelector(".button-container").innerHTML = buttons
     document.querySelector(".reset").innerText = "Start Over"
+    document.querySelector(".win-or-lose").innerText = "" 
+    document.querySelector(".beats-or-losesTo").innerText = ""
+    document.querySelector(".computerChoice").innerHTML = `?`
+    document.querySelector(".playerChoice").innerHTML = `?`
     if(document.body.classList.contains("dark")){
         const btns = document.querySelectorAll("div > button")
         btns.forEach((node,idx) => node.classList.toggle("dark-button"))
