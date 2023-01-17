@@ -10,26 +10,6 @@ header > .toggle-darkMode {
     line-height: 1;
 }
 
-.btn {
-    background-color:#03C988;
-    cursor: pointer;
-    font-family: 'Roboto', sans-serif;
-    font-size: large;
-    font-weight:100;
-    color: white;
-    border-radius: 42px 42px 42px 42px;
-    -webkit-border-radius: 42px 42px 42px 42px;
-    -moz-border-radius: 42px 42px 42px 42px;
-    border: 4px inset #9acfcf;
-    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-}
-
-.btn:hover {
-    background-color:#036947
-}
-
 body {
     text-align: center;
     display: flex;
@@ -45,22 +25,6 @@ body {
     box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
     -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
     -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
-}
-
-
-.dark {
-    background-color: darkslategrey;
-    color: white;
-    border: 16px outset #9acfcf;
-}
-
-.dark-button {
-    background-color: #1C82AD;
-    border: 4px outset #9acfcf;
-}
-
-.dark-button:hover {
-    background-color:#145470
 }
 
 header {
@@ -88,6 +52,26 @@ header > button {
 
 h2 {
     margin: 0;
+}
+
+.btn {
+    background-color:#03C988;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    font-weight:100;
+    color: white;
+    border-radius: 42px 42px 42px 42px;
+    -webkit-border-radius: 42px 42px 42px 42px;
+    -moz-border-radius: 42px 42px 42px 42px;
+    border: 4px inset #9acfcf;
+    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+}
+
+.btn:hover {
+    background-color:#036947
 }
 
 .button-container {
@@ -135,18 +119,14 @@ h2 {
     -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
 }
 
-.dark-data {
-    border: 4px outset #9acfcf;
+div > h3 {
+    text-decoration: underline;
 }
 
 .playerChoice, .computerChoice {
     font-size: 40px;
     line-height: 55px;
     margin: 0;
-}
-
-div > h3 {
-    text-decoration: underline;
 }
 
 .reset {
@@ -163,6 +143,29 @@ div > h3 {
     margin-bottom: 0;
     padding: 0;
 }
+
+/* Dark Mode CSS */
+
+.dark {
+    background-color: darkslategrey;
+    color: white;
+    border: 16px outset #9acfcf;
+}
+
+.dark-button {
+    background-color: #1C82AD;
+    border: 4px outset #9acfcf;
+}
+
+.dark-button:hover {
+    background-color:#145470
+}
+
+.dark-data {
+    border: 4px outset #9acfcf;
+}
+
+/* Mobile responsiveness CSS */
 
 @media only screen and (max-width: 600px) {
     body {
