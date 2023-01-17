@@ -41,7 +41,7 @@ body {
     width: 700px;
     margin: auto;
     margin-top: 10px;
-    padding-bottom: 20px;
+    padding-bottom: 5px;
     box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
     -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
     -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
@@ -148,4 +148,10 @@ div > h3 {
     width: 100px;
     height: 50px;
     border-radius: 10px;
+}
+
+.footer {
+    font-size: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
