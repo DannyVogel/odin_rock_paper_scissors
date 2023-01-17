@@ -66,10 +66,10 @@ function playRound(playerSelection, computerSelection) {
 function final(){
     if(playerScore == 5){
         document.querySelector(".button-container").innerText = "Game Won!"
-        animateCSS('.button-container', 'lightSpeedInLeft');
+        animateCSS('.button-container', 'zoomInDown');
     } else {
         document.querySelector(".button-container").innerText = "Game Lost!"
-        animateCSS('.button-container', 'hinge');
+        animateCSS('.button-container', 'slideInDown');
     }
 }
 
