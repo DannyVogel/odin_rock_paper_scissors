@@ -50,8 +50,28 @@ header > button {
     margin-right:10px ;
 }
 
-h2 {
+h1, h2 {
     margin: 0;
+}
+
+h2 {
+    margin-top: 15px;
+}
+
+input {
+    text-align: center;
+    border-radius: 42px 42px 42px 42px;
+    -webkit-border-radius: 42px 42px 42px 42px;
+    -moz-border-radius: 42px 42px 42px 42px;
+    border: 4px inset #9acfcf;
+    box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    -webkit-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    -moz-box-shadow: 7px 10px 19px 1px rgba(0,0,0,0.49);
+    margin: 5px;
+}
+
+::placeholder {
+   text-align: center; 
 }
 
 .btn {
@@ -162,6 +182,10 @@ div > h3 {
 }
 
 .dark-data {
+    border: 4px outset #9acfcf;
+}
+
+.dark-input {
     border: 4px outset #9acfcf;
 }
 

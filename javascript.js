@@ -1,7 +1,15 @@
+function setPlayerName(event){
+    event.preventDefault()
+    let player = document.getElementById("playerName").value;
+    if(player == ""){
+        player = "Player"
+    }
+    document.querySelector(".player-name").innerText = player
+}
+
 function setPlayerChoice(event){
     return event.target.value
 }
-
 
 function getComputerChoice() {
     let choices = ["✊", "🖐️", "✌️"]
@@ -131,6 +139,7 @@ function toggleDark(){
     btns.forEach((node,idx) => node.classList.toggle("dark-button"))
     const data = document.querySelectorAll(".player-data, .computer-data")
     data.forEach((node,idx) => node.classList.toggle("dark-data"))
+    document.querySelector("input").classList.toggle("dark-input")
 }
 
 let buttons =   '<button class="btn rock" value="✊" onclick="game(event)">✊</button>'+
