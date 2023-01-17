@@ -79,6 +79,7 @@ function reset(){
     document.querySelector(".computer-score").innerHTML = `Score: ${computerScore}`
     document.querySelector(".player-score").innerHTML = `Score: ${playerScore}`
     document.querySelector(".button-container").innerHTML = buttons
+    document.querySelector(".reset").innerText = "Start Over"
     if(document.body.classList.contains("dark")){
         const btns = document.querySelectorAll("div > button")
         btns.forEach((node,idx) => node.classList.toggle("dark-button"))
@@ -99,6 +100,7 @@ function game(event){
         
     if(playerScore == 5 || computerScore == 5){
         final();
+        document.querySelector(".reset").innerText = "Play Again"
     }
 }
 
@@ -130,11 +132,3 @@ function toggleDark(){
 let buttons =   '<button class="btn rock" value="✊" onclick="game(event)">✊</button>'+
                 '<button class="btn paper" value="🖐️" onclick="game(event)">🖐️</button>'+
                 '<button class="btn scissors"value="✌️" onclick="game(event)">✌️</button>'
-
-
-
-if(playerScore == 5 || computerScore == 5){
-    document.querySelector(".reset").innerText = "Play Again"
-} else {
-    document.querySelector(".reset").innerText = "Start Over"
-}
