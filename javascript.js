@@ -1,3 +1,4 @@
+// sets player name if input is used
 function setPlayerName(event){
     event.preventDefault()
     let player = document.getElementById("playerName").value;
@@ -5,6 +6,26 @@ function setPlayerName(event){
         player = "Player"
     }
     document.querySelector(".player-name").innerText = player
+    document.getElementById("playerName").value = ""
+}
+
+// main function that runs the helper functions below once player choice is made
+function game(event){
+    let playerSelection = setPlayerChoice(event);
+    let computerSelection = getComputerChoice();
+    
+    playRound(playerSelection, computerSelection);
+    
+    computerChoiceElement.innerHTML = `${computerSelection}`
+    computerScoreElement.innerHTML = `Score: ${computerScore}`
+    
+    playerChoiceElement.innerHTML = `${playerSelection}`
+    playerScoreElement.innerHTML = `Score: ${playerScore}`
+    
+    if(playerScore == 5 || computerScore == 5){
+        final();
+        document.querySelector(".reset").innerText = "Play Again"
+    }
 }
 
 function setPlayerChoice(event){
@@ -19,104 +40,123 @@ function getComputerChoice() {
 let playerScore = 0
 let computerScore = 0
 
+// setting up variables for use in subsequent functions
+const winLoseElement = document.querySelector(".win-or-lose")
+const beatsLosesElement = document.querySelector(".beats-or-losesTo")
+
 function playRound(playerSelection, computerSelection) {
     if(playerSelection == "✊"){
         if(computerSelection == "🖐️"){
             computerScore ++
-            document.querySelector(".win-or-lose").innerText = "You lost!" 
-            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
+            winLoseElement.innerText = "You lost!" 
+            beatsLosesElement.innerText = "loses to" 
             animateCSS('.win-or-lose', 'bounceIn');
         } else if(computerSelection == "✌️"){
             playerScore ++
-            document.querySelector(".win-or-lose").innerText = "You won!" 
-            document.querySelector(".beats-or-losesTo").innerText = "beats"
+            winLoseElement.innerText = "You won!" 
+            beatsLosesElement.innerText = "beats"
             animateCSS('.win-or-lose', 'bounceIn');
         } else {
-            document.querySelector(".win-or-lose").innerText = "Tie!" 
-            document.querySelector(".beats-or-losesTo").innerText = " = " 
+            winLoseElement.innerText = "Tie!" 
+            beatsLosesElement.innerText = " = " 
             animateCSS('.win-or-lose', 'bounceIn');
         }
     } else if(playerSelection == "🖐️"){
         if(computerSelection == "🖐️"){
-            document.querySelector(".win-or-lose").innerText = "Tie!" 
-            document.querySelector(".beats-or-losesTo").innerText = " = " 
+            winLoseElement.innerText = "Tie!" 
+            beatsLosesElement.innerText = " = " 
             animateCSS('.win-or-lose', 'bounceIn');
         } else if(computerSelection == "✌️"){
             computerScore ++
-            document.querySelector(".win-or-lose").innerText = "You lost!" 
-            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
+            winLoseElement.innerText = "You lost!" 
+            beatsLosesElement.innerText = "loses to" 
             animateCSS('.win-or-lose', 'bounceIn');
         } else {
             playerScore ++
-            document.querySelector(".win-or-lose").innerText = "You won!" 
-            document.querySelector(".beats-or-losesTo").innerText = "beats"           
+            winLoseElement.innerText = "You won!" 
+            beatsLosesElement.innerText = "beats"           
             animateCSS('.win-or-lose', 'bounceIn');
         }
     } else {
         if(computerSelection == "🖐️"){
             playerScore ++
-            document.querySelector(".win-or-lose").innerText = "You won!" 
-            document.querySelector(".beats-or-losesTo").innerText = "beats"           
+            winLoseElement.innerText = "You won!" 
+            beatsLosesElement.innerText = "beats"           
             animateCSS('.win-or-lose', 'bounceIn');
         } else if(computerSelection == "✌️"){
-            document.querySelector(".win-or-lose").innerText = "Tie!" 
-            document.querySelector(".beats-or-losesTo").innerText = " = " 
+            winLoseElement.innerText = "Tie!" 
+            beatsLosesElement.innerText = " = " 
             animateCSS('.win-or-lose', 'bounceIn');
         } else {
             computerScore ++
-            document.querySelector(".win-or-lose").innerText = "You lost!" 
-            document.querySelector(".beats-or-losesTo").innerText = "loses to" 
+            winLoseElement.innerText = "You lost!" 
+            beatsLosesElement.innerText = "loses to" 
             animateCSS('.win-or-lose', 'bounceIn');
         }
     }
 }
 
+// setting up variables for use in subsequent functions
+const buttonContainerElement = document.querySelector(".button-container")
+
+// Runs if 5 points reached by either player or computer
 function final(){
     if(playerScore == 5){
-        document.querySelector(".button-container").innerText = "Game Won!"
+        buttonContainerElement.innerText = "Game Won!"
         animateCSS('.button-container', 'zoomInDown');
     } else {
-        document.querySelector(".button-container").innerText = "Game Lost!"
+        buttonContainerElement.innerText = "Game Lost!"
         animateCSS('.button-container', 'slideInDown');
     }
 }
 
+// setting up variables for use in subsequent functions
+const computerChoiceElement = document.querySelector(".computerChoice")
+const computerScoreElement = document.querySelector(".computer-score")
+
+const playerChoiceElement = document.querySelector(".playerChoice")
+const playerScoreElement = document.querySelector(".player-score")
+
+// function used to reset game 
 function reset(){
     playerScore = 0;
     computerScore = 0;
-    document.querySelector(".computer-score").innerHTML = `Score: ${computerScore}`
-    document.querySelector(".player-score").innerHTML = `Score: ${playerScore}`
-    document.querySelector(".button-container").innerHTML = buttons
+
+    computerScoreElement.innerHTML = `Score: ${computerScore}`
+    playerScoreElement.innerHTML = `Score: ${playerScore}`
+
+    buttonContainerElement.innerHTML = buttons
+
     document.querySelector(".reset").innerText = "Start Over"
-    document.querySelector(".win-or-lose").innerText = "" 
-    document.querySelector(".beats-or-losesTo").innerText = ""
-    document.querySelector(".computerChoice").innerHTML = `?`
-    document.querySelector(".playerChoice").innerHTML = `?`
+
+    winLoseElement.innerText = "" 
+    beatsLosesElement.innerText = ""
+    computerChoiceElement.innerHTML = `?`
+    playerChoiceElement.innerHTML = `?`
+
     if(document.body.classList.contains("dark")){
         const btns = document.querySelectorAll("div > button")
         btns.forEach((node,idx) => node.classList.toggle("dark-button"))
     }
 }
+// variable used in reset function to recover choice buttons
+const buttons =   '<button class="btn rock" value="✊" onclick="game(event)">✊</button>'+
+                '<button class="btn paper" value="🖐️" onclick="game(event)">🖐️</button>'+
+                '<button class="btn scissors"value="✌️" onclick="game(event)">✌️</button>'
 
-function game(event){
-        let playerSelection = setPlayerChoice(event);
-        let computerSelection = getComputerChoice();
-        
-        playRound(playerSelection, computerSelection);
-        
-        document.querySelector(".computerChoice").innerHTML = `${computerSelection}`
-        document.querySelector(".computer-score").innerHTML = `Score: ${computerScore}`
-        
-        document.querySelector(".playerChoice").innerHTML = `${playerSelection}`
-        document.querySelector(".player-score").innerHTML = `Score: ${playerScore}`
-        
-    if(playerScore == 5 || computerScore == 5){
-        final();
-        document.querySelector(".reset").innerText = "Play Again"
-    }
+function toggleDark(){
+    document.body.classList.toggle("dark")
+
+    const btns = document.querySelectorAll("button")
+    btns.forEach((node,idx) => node.classList.toggle("dark-button"))
+
+    const data = document.querySelectorAll(".player-data, .computer-data")
+    data.forEach((node,idx) => node.classList.toggle("dark-data"))
+
+    document.querySelector("input").classList.toggle("dark-input")
 }
 
-
+// Function from animateCSS library used to add and remove animate class after animation end
 const animateCSS = (element, animation, prefix = 'animate__') =>
   new Promise((resolve, reject) => {
     const animationName = `${prefix}${animation}`;
@@ -129,19 +169,6 @@ const animateCSS = (element, animation, prefix = 'animate__') =>
       node.classList.remove(`${prefix}animated`, animationName);
       resolve('Animation ended');
     }
-
+    
     node.addEventListener('animationend', handleAnimationEnd, {once: true});
-  });
-
-function toggleDark(){
-    document.body.classList.toggle("dark")
-    const btns = document.querySelectorAll("button")
-    btns.forEach((node,idx) => node.classList.toggle("dark-button"))
-    const data = document.querySelectorAll(".player-data, .computer-data")
-    data.forEach((node,idx) => node.classList.toggle("dark-data"))
-    document.querySelector("input").classList.toggle("dark-input")
-}
-
-let buttons =   '<button class="btn rock" value="✊" onclick="game(event)">✊</button>'+
-                '<button class="btn paper" value="🖐️" onclick="game(event)">🖐️</button>'+
-                '<button class="btn scissors"value="✌️" onclick="game(event)">✌️</button>'
+});
