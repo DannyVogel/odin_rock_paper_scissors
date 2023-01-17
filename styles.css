@@ -166,6 +166,7 @@ div > h3 {
 @media only screen and (max-width: 600px) {
     body {
       width: auto;
+      margin-top: 0;
     }
 
     header {
