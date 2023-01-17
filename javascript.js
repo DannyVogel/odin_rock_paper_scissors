@@ -1,6 +1,13 @@
+const buds = ["Ritesh", "Millan", "Christian", "Roberto", "Alex", "Aakash"]
+
 function setPlayerName(event){
     event.preventDefault()
     let player = document.getElementById("playerName").value;
+    buds.forEach(item => {
+        if(item == player){
+            player = "Bastard"
+        }
+    })
     if(player == ""){
         player = "Player"
     }
@@ -73,10 +80,18 @@ function playRound(playerSelection, computerSelection) {
 
 function final(){
     if(playerScore == 5){
-        document.querySelector(".button-container").innerText = "Game Won!"
-        animateCSS('.button-container', 'zoomInDown');
+        if(document.querySelector(".player-name").innerText == "Bastard"){
+            document.querySelector(".button-container").innerText = "Lucky Bitch!"
+        } else {
+            document.querySelector(".button-container").innerText = "Game Won!"
+        }
+    animateCSS('.button-container', 'zoomInDown');
     } else {
-        document.querySelector(".button-container").innerText = "Game Lost!"
+        if(document.querySelector(".player-name").innerText == "Bastard"){
+            document.querySelector(".button-container").innerText = "You Suck!"
+        } else {
+            document.querySelector(".button-container").innerText = "Game Lost!"
+        }
         animateCSS('.button-container', 'slideInDown');
     }
 }
